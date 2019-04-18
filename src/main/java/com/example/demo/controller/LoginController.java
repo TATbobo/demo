@@ -11,12 +11,13 @@ import java.util.Map;
 public class LoginController {
 
     @GetMapping(value ="/login")
-   /* @RequestMapping(value = "/user/login",method= RequestMethod.POST)*/
-    public String login(@RequestParam("username")String username, @RequestParam("password")String password, Map<String,Object> map, HttpSession session){
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password, Map<String,Object> map, HttpSession session){
 
-        if(!StringUtils.isEmpty(username)&&"123456".equals(password)){
-            //登陆成功
-            session.setAttribute("loginUser",username);
+        if(username!=null) {
+            if (!StringUtils.isEmpty(username) && "1".equals(password)) {
+                //登陆成功
+                session.setAttribute("loginUser", username);
+            }
             return "redirect:/main.html";
         }
         else {
@@ -24,6 +25,10 @@ public class LoginController {
             map.put("msg","用户名密码错误");
             return "login";
         }
+    }
+    @GetMapping(value = "/user/login")
+    public String login(){
+        return "login";
 
     }
 }
