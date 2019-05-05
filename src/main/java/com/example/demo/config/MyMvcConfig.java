@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 
 //@Configuration
-public class MyMvcController extends WebMvcConfigurationSupport {
+public class MyMvcConfig extends WebMvcConfigurationSupport {
     @Override
     protected void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/tucker").setViewName("user/success");

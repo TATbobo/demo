@@ -1,34 +1,57 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.thymeleaf.util.StringUtils;
-
-import javax.servlet.http.HttpSession;
-import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LoginController {
+	private final String PREFIX = "pages/";
+	/**
+	 * 欢迎页
+	 * @return
+	 */
+	@GetMapping("/")
+	public String index() {
+		return "dashboard";
+	}
+	
 
-    @GetMapping(value ="/login")
-    public String login(@RequestParam("username") String username, @RequestParam("password") String password, Map<String,Object> map, HttpSession session){
+	@GetMapping("/user/login")
+	public String loginPage() {
+		return "login";
+	}
 
-        if(username!=null) {
-            if (!StringUtils.isEmpty(username) && "1".equals(password)) {
-                //登陆成功
-                session.setAttribute("loginUser", username);
-            }
-            return "redirect:/main.html";
-        }
-        else {
-            //登录失败
-            map.put("msg","用户名密码错误");
-            return "login";
-        }
-    }
-    @GetMapping(value = "/user/login")
-    public String login(){
-        return "login";
+	/**
+	 * level1页面映射
+	 * @param path
+	 * @return
+	 */
+	@GetMapping("/level1/{path}")
+	public String level1(@PathVariable("path")String path) {
+		return PREFIX+"level1/"+path;
+	}
+	
+	/**
+	 * level2页面映射
+	 * @param path
+	 * @return
+	 */
+	@GetMapping("/level2/{path}")
+	public String level2(@PathVariable("path")String path) {
+		return PREFIX+"level2/"+path;
+	}
+	
+	/**
+	 * level3页面映射
+	 * @param path
+	 * @return
+	 */
+	@GetMapping("/level3/{path}")
+	public String level3(@PathVariable("path")String path) {
+		return PREFIX+"level3/"+path;
+	}
 
-    }
+
 }

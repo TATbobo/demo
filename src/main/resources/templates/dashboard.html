@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,6 +42,16 @@
 	</head>
 
 	<body>
+
+    <div sec:authorize="!isAuthenticated()">
+        <h1 align="center">欢迎进入Dashboard</h1>
+        <h2 align="center">游客您好
+            <form th:action="@{/user/login}" method="get">
+				<button class="btn btn-primary">登陆</button>
+            </form></h2>
+    </div>
+
+    <div sec:authorize="isAuthenticated()">
 		<div th:replace="commons/bar::topbar"></div>
 
 		<div class="container-fluid">
@@ -77,6 +87,7 @@
 				</main>
 			</div>
 		</div>
+    </div>
 
 		<!-- Bootstrap core JavaScript
     ================================================== -->

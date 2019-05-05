@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class LoginHandlerInterceptor implements HandlerInterceptor {
-    @Override
+    /*@Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 
     }
@@ -30,5 +30,5 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
             return true;
         }
         return false;
-    }
+    }*/
 }
