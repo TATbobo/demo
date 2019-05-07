@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import com.example.demo.bean.User;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;

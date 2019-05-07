@@ -9,7 +9,7 @@
 
 <div sec:authorize="!isAuthenticated()">
 	<h1 align="center">欢迎进入Dashboard</h1>
-	<h2 align="center">游客您好<button class="btn btn-lg btn-primary btn-block" th:href="@{/user/login}" type="submit" th:text="#{login.btn}">登陆</button></h2>
+	<h2 align="center">游客您好<button class="btn btn-lg btn-primary btn-block" th:href="@{/user/register}" type="submit" th:text="#{login.btn}">登陆</button></h2>
 </div>
 <div sec:authorize="isAuthenticated()">
 	<h2 align="center"><button class="btn btn-lg btn-primary btn-block" th:href="@{/user/login}" type="submit" th:text="#{login.btn}">点击进入你的Dashboard</button></h2>
